@@ -27,20 +27,45 @@ class App extends Component {
 
 		this.state = {
 			list,
+			searchTerm:''
 		}
 
-		this.onDismiss = this.onDismiss.bind(this);
+		//this.onDismiss = this.onDismiss.bind(this);
+		this.onSearchChange = this.onSearchChange.bind(this);
 	}
+
+	isSearched(searchTerm){
+		return function(item){
+			return !searchTerm ||
+				item.title.toLowerCase().includes(searchTerm.toLowerCase())
+
+		}
+	};
 
 	onDismiss(id){
 		const updatedList = this.state.list.filter((item)=> item.objectID !== id)
 		this.setState({list : updatedList});
 	};
 
+	onSearchChange(e){
+		this.setState({searchTerm: e.target.value})
+
+	};
+
 	render(){
 
 	    return (
-	        this.state.list.map((item)=> 
+				<div className = "App" >
+					<form>
+						<input 
+							type="text"
+							onChange={this.onSearchChange}
+						
+						
+						
+						/>
+					</form>
+	        {this.state.list.filter(this.isSearched(this.state.searchTerm)).map((item)=> 
 	          <div key = {item.objectID} >
 		          <a href={item.url}>{item.title} </a>
 		          <span>{item.author} </span>
@@ -54,12 +79,13 @@ class App extends Component {
 
 		          </span>
 	          </div>
-	        )
+	        )}
+				</div>
 	    )
   	}
 };
 
-ReactDOM.render(<App/>, document.getElementById('app'))
+ReactDOM.render(<App/>, document.getElementById('app'));
 
 
 
