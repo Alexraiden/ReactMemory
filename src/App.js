@@ -52,7 +52,11 @@ class App extends Component {
 
 	};
 
+	
+
 	render(){
+
+		const {list, searchTerm} = this.state;
 
 	    return (
 				<div className = "App" >
@@ -65,21 +69,26 @@ class App extends Component {
 						
 						/>
 					</form>
-	        {this.state.list.filter(this.isSearched(this.state.searchTerm)).map((item)=> 
-	          <div key = {item.objectID} >
-		          <a href={item.url}>{item.title} </a>
-		          <span>{item.author} </span>
-		          <span>{item.objectID}</span>
-		          <span>
-		          	<button
-		          		onClick = {()=>this.onDismiss(item.objectID)}
-		          	>
-		          	Dismiss
-		          	</button>
+	        {list.filter(this.isSearched(searchTerm)).map(function(item){
 
-		          </span>
-	          </div>
-	        )}
+						const {objectID, url, author}= this.item;
+
+						return(
+							<div key = {objectID} >
+		          	<a href={url}>{title} </a>
+		          	<span>{author} </span>
+		          	<span>{objectID}</span>
+		          	<span>
+		          		<button
+		          			onClick = {()=>this.onDismiss(objectID)}
+		          		>
+		          		Dismiss
+		          		</button>
+		          	</span>
+	          	</div>
+						)
+					})
+					}
 				</div>
 	    )
   	}
