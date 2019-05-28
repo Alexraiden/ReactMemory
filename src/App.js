@@ -30,7 +30,7 @@ class App extends Component {
 			searchTerm:''
 		}
 
-		//this.onDismiss = this.onDismiss.bind(this);
+		this.onDismiss = this.onDismiss.bind(this);
 		this.onSearchChange = this.onSearchChange.bind(this);
 	}
 
@@ -64,14 +64,11 @@ class App extends Component {
 						<input 
 							type="text"
 							onChange={this.onSearchChange}
-						
-						
-						
 						/>
 					</form>
-	        {list.filter(this.isSearched(searchTerm)).map(function(item){
+	        {list.filter(this.isSearched(searchTerm)).map((item)=>{
 
-						const {objectID, url, author}= this.item;
+						const {objectID, url, author, title}= item;
 
 						return(
 							<div key = {objectID} >
@@ -79,11 +76,11 @@ class App extends Component {
 		          	<span>{author} </span>
 		          	<span>{objectID}</span>
 		          	<span>
-		          		<button
-		          			onClick = {()=>this.onDismiss(objectID)}
-		          		>
-		          		Dismiss
-		          		</button>
+									<Button 
+										onClick = {() => this.onDismiss(objectID)} //don't forget to bind onDismiss function
+										type="button"
+									/>
+		          		
 		          	</span>
 	          	</div>
 						)
@@ -93,6 +90,15 @@ class App extends Component {
 	    )
   	}
 };
+
+const Button = ({onClick})=>(
+	<button
+		onClick = {onClick}
+	>
+		Dismiss2
+	</button>
+);
+	
 
 ReactDOM.render(<App/>, document.getElementById('app'));
 
