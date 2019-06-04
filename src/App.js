@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import {boundMethod} from 'autobind-decorator'
 
 //data test
 
@@ -30,8 +31,8 @@ class App extends Component {
 			searchTerm:''
 		}
 
-		this.onDismiss = this.onDismiss.bind(this);
-		this.onSearchChange = this.onSearchChange.bind(this);
+		//this.onDismiss = this.onDismiss.bind(this);
+		//this.onSearchChange = this.onSearchChange.bind(this);
 	}
 
 	isSearched(searchTerm){
@@ -42,11 +43,13 @@ class App extends Component {
 		}
 	};
 
+	@boundMethod
 	onDismiss(id){
 		const updatedList = this.state.list.filter((item)=> item.objectID !== id)
 		this.setState({list : updatedList});
 	};
 
+	@boundMethod
 	onSearchChange(e){
 		this.setState({searchTerm: e.target.value})
 
