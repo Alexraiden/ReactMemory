@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import {boundMethod} from 'autobind-decorator';
 import List from './customComponents/List';
 import Search from './customComponents/Search';
+import NavBar from './customComponents/NavBar';
+
+import bg from './img/bisou.jpg'
 
 //data test
 
@@ -65,15 +68,34 @@ class App extends Component {
 
 	    return (
 				<div className = "App" >
-					<Search value = {searchTerm} onChange = {this.onSearchChange}>
-						Type for Search
-					</Search>
+					<NavBar
+						search = 
+						{
+							<Search 
+								value = {searchTerm} onChange = {this.onSearchChange}>
+								Type for Search
+							</Search>
+						}
+					/> 
+					
 					<List 
 						list = {list} 
 						searchTerm = {searchTerm}
 						searchFunction = {this.isSearched}
 						deleteFunction = {this.onDismiss}
 					/>
+
+					<div class = "bob" style={{backgroundImage: `url(${bg})`}} >
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+					</div>
 				</div>
 	    )
   	}

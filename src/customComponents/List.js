@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './listButton';
+import bg from '../img/bisou.jpg';
 
 const List = ({list, searchTerm, searchFunction, deleteFunction}) =>(
 	<div>
@@ -8,7 +9,7 @@ const List = ({list, searchTerm, searchFunction, deleteFunction}) =>(
 			const {objectID, url, author, title}= item;
 
 			return(
-				<div key = {objectID} >
+				<div key = {objectID} style ={ { backgroundImage: "url("+bg+")" } } >
 					<a href={url}>{title} </a>
 					<span>{author} </span>
 					<span>{objectID}</span>
