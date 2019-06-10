@@ -4,6 +4,7 @@ import {boundMethod} from 'autobind-decorator';
 import List from './customComponents/List';
 import Search from './customComponents/Search';
 import NavBar from './customComponents/NavBar';
+import navBarConfiguration from './customComponents/NavBarConfiguration';
 
 import bg from './img/bisou.jpg'
 
@@ -76,6 +77,7 @@ class App extends Component {
 								Type for Search
 							</Search>
 						}
+						item = {navBarConfiguration}
 					/> 
 					
 					<List 
@@ -85,17 +87,6 @@ class App extends Component {
 						deleteFunction = {this.onDismiss}
 					/>
 
-					<div class = "bob" style={{backgroundImage: `url(${bg})`}} >
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-						<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-					</div>
 				</div>
 	    )
   	}
